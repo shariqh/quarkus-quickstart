@@ -32,6 +32,12 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("async")
     public CompletionStage<String> asynchello() {
+        try {
+            Thread.sleep(5000);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
         return CompletableFuture.supplyAsync(() -> "hello");
     }
 

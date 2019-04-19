@@ -31,4 +31,13 @@ public class GreetingResourceTest {
                     .body(is("hello " + uuid));
     }
 
+    @Test
+    public void testAsyncGreeting() {
+        given()
+                .when().get("/hello/async")
+                .then()
+                    .statusCode(200)
+                    .body(is("hello"));
+    }
+
 }
